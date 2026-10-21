@@ -1,7 +1,7 @@
 """Reto integrador: control de ingreso al Anfiteatro del CENAC.
 
-Nombre del estudiante: __________________________________________
-Fecha: ____________________
+Nombre del estudiante: Karla Alejandra Cerdas Chaves
+Fecha: 20/10/26
 
 Contexto:
 Se analizará el ingreso de grupos a un evento en el Anfiteatro del CENAC, Costa Rica.
@@ -26,9 +26,17 @@ Grupo | Ocupación anterior | Decisión  | Ocupación posterior
 
 Preguntas de análisis:
 - ¿Por qué no se conoce cuántas veces se solicitará un grupo?
+Porque el usuario decide cuántos grupos ingresar. Por eso se utiliza un ciclo while que continúa hasta que se escriba "fin".
+
 - ¿Qué lista cambia cuando el grupo se acepta? ¿Y cuando se rechaza?
+Si se acepta, cambia grupos_aceptados mediante append().
+Si se rechaza, cambia grupos_rechazados mediante append().
+
 - ¿Qué no debe cambiar después de un rechazo?
+La ocupación actual. Un grupo rechazado no ingresa al lugar, por lo que no se suma a ocupacion.
+
 - ¿Qué información puede calcularse al finalizar recorriendo los aceptados?
+El total de personas admitidas. También pueden calcularse el grupo más pequeño, el más grande y el porcentaje de ocupación
 
 Objetivo:
 Registrar los grupos y evitar que la ocupación supere la capacidad del escenario.
@@ -103,3 +111,55 @@ Otros casos para probar:
 
 
 # Desarrolle su solución a partir de esta línea.
+
+
+capacidad = 700
+grupos_aceptados = []
+grupos_rechazados = []
+ocupacion = 0
+
+entrada = input("Ingrese el grupo o escriba 'fin' para terminar: ").strip().lower()
+
+while entrada != "fin":
+    try:
+        grupo = int(entrada)
+
+        if grupo <= 0:
+            print("Entrada inválida. Ingrese un entero mayor que cero.")
+
+        elif ocupacion + grupo <= capacidad:
+            grupos_aceptados.append(grupo)
+            ocupacion = ocupacion + grupo
+            print(f"Grupo aceptado: ingresan {grupo} personas.")
+            print(f"Ocupación actual: {ocupacion}")
+            print(f"Espacios disponibles: {capacidad - ocupacion}")
+
+        else:
+            grupos_rechazados.append(grupo)
+            print(f"Grupo rechazado: no hay espacio para {grupo} personas.")
+            print(f"Ocupación actual: {ocupacion}")
+            print(f"Espacios disponibles: {capacidad - ocupacion}")
+
+    except ValueError:
+        print("Entrada inválida. Escriba un número entero o 'fin'.")
+
+    entrada = input("Ingrese el siguiente grupo o 'fin' para terminar: ").strip().lower()
+
+total_admitido = 0
+
+for grupo in grupos_aceptados:
+    total_admitido = total_admitido + grupo
+
+print("REPORTE FINAL")
+print(f"Grupos aceptados: len {grupos_aceptados}")
+print(f"Grupos rechazados: len {grupos_rechazados}")
+print(f"Personas admitidas: {total_admitido}")
+print(f"Capacidad máxima: {capacidad}")
+print(f"Espacios disponibles: {capacidad - total_admitido}")
+
+
+
+  
+
+    
+    
