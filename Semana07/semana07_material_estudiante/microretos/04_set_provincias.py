@@ -10,11 +10,11 @@ print("¿Está San Jose?:", "San Jose" in provincias)
 
 # TODO: agregue otra vez "San Jose" mediante add().
 print("Después de repetir San Jose:", len(provincias))
-
+provincias.add("San Jose")
 # TODO: agregue "Heredia" mediante add().
 print("Después de agregar Heredia:", len(provincias))
 print("¿Está Heredia?:", "Heredia" in provincias)
-
+provincias.add("Heredia")
 # Para explicar: ¿por qué repetir San Jose no aumenta la cantidad?
 # Para comprobar: las cantidades son 2, 2 y 3; Heredia sí es un dato nuevo.
 # Si imprime el set, el orden de las provincias puede variar.
