@@ -59,7 +59,7 @@ print("COMPARACIÓN SEMANAL DE TIENDAS")
 print("-" * 70)
 print(f"Centro | total: ₡ {total_centro: ,.2f} | meta ₡  {meta_centro: ,.2f} | cumplimiento % {porcentaje_centro}")
 print(f"Centro_logro: {estado_centro}\n")
-print(f"Norte | total: ₡ {total_norte ,.2f} | meta ₡  {meta_norte: ,.2f} | cumplimiento % {porcentaje_norte}") 
+print(f"Norte | total: ₡ {total_norte , .2f} | meta ₡  {meta_norte: ,.2f} | cumplimiento % {porcentaje_norte}") 
 print (f"Norte logro: {estado_norte}\n")
 print("Tienda con mayor ventas: " , tienda_mayor_venta)
 # TODO: escribe las tres conclusiones solicitadas en la guía.
