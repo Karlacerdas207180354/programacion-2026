@@ -16,9 +16,15 @@ def explorar_atenciones(atenciones):
     print("P1. Archivo leído correctamente.")
 
     # P2. Cuente las filas con un ciclo. Compruebe que obtuvo 12.
+    print("cantidad de filas:", len(atenciones))
 
     # P3. Ejemplo listo para ejecutar. Explique qué tipos y campos observa.
     primer_registro = atenciones[0]
+    print("Tipo coleccion" , type (atenciones))
+    print("Tipo registro:" , type(primer_registro))
+    print("Campo registro:" , type(primer_registro["nombre_paciente"]))
+    print("Campo registro:" , type(primer_registro["edad"]))    
+
 
 
 def contar_y_limpiar(atenciones):
@@ -26,10 +32,14 @@ def contar_y_limpiar(atenciones):
     print("Etapa 2. Complete y compruebe las preguntas 4 a 8.")
     # P4. Cuente los medicamentos tal como aparecen en el CSV con .get().
     # Muestre el contador y su total.
+    cantidad_medicamentos = 0
+    for paciente in atenciones:
+        cantidad_medicamentos += 1
 
     # P5. Muestre ejemplos de espacios o mayúsculas en hospital,
     # diagnostico y medicamento.
-
+    print("Error de espacios:" , atenciones[-2]["medicamento"])
+    print("Error de espacios:" , atenciones[7]["diagnostico"])
     # P6. Cuente los medicamentos con strip() y lower(). Muestre el
     # contador limpio y su total. Compare con P4.
 
@@ -41,7 +51,7 @@ def contar_y_limpiar(atenciones):
     # P8. Cuente hospitales y diagnósticos con los nombres limpios.
     # Muestre ambos contadores, sus totales y la categoría más frecuente de
     # cada campo.
-
+    print("Cantidad de medicamentos recetados:" , cantidad_medicamentos)
 
 def concluir(atenciones):
     """Recibe la lista de atenciones y muestra el resumen de pacientes y esperas."""
